@@ -1,0 +1,55 @@
+<html>
+  <head>
+   <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-extras.tube@%5E3.5.x/dist/aframe-extras.tube.min.js"></script>
+    <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-entity 
+                id="schnee" 
+                particle-system="preset: snow; color: grey; particleCount: 10000"
+      ></a-entity>
+
+      <a-gltf-model
+                scale="5 5 5"
+                position="0 5 0 "
+                rotation="-45 0 90"
+                src="scene.glb"
+      ></a-gltf-model>
+      
+      <a-entity geometry="primitive: torus; radius: 2; radiusTubular: 0.05; arc: 360" 
+                position="0 4 -5" rotation="90" 
+                material="color: white; shader: flat; opacity: 0.9;"
+                light="type: point; intensity: 5"
+                animation="property: position; easing: easeInOutQuad; dir: alternate; dur: 1000; to: 0 -0.10 -5; loop: true"></a-entity>
+      
+      <a-entity geometry="primitive: torus; radius: 1.75; radiusTubular: 0.05; arc: 360" 
+                position="0 4 -5" rotation="90"
+                material="color: white; shader: flat; opacity: 0.9;"
+                light="type: point; intensity: 1"
+                animation="property: position; easing: easeInOutQuad; dir: alternate; dur: 1250; to: 0 -0.10 -5; loop: true"></a-entity>
+      
+      <a-entity geometry="primitive: torus; radius: 1.5; radiusTubular: 0.05; arc: 360" 
+                position="0 4 -5" rotation="90"
+                material="color: white; shader: flat; opacity: 0.9;"
+                light="type: point; intensity: 1"
+                animation="property: position; easing: easeInOutQuad; dir: alternate; dur: 1500; to: 0 -0.10 -5; loop: true"></a-entity>
+ 
+      <a-entity id="ocean" ocean="density: 32; width: 50; depth: 50; speed: 3"
+                material="color: aquamarine; opacity: 0.7; metalness: 0; roughness: 0"
+                rotation="-90 0 0"
+                position="0 -1 0"></a-entity>
+      
+      <a-entity id="skybox" geometry="primitive: sphere; radius: 5000"
+                scale="-1 1 1"
+                material="shader: gradient; topColor: 0, 81, 255; bottomColor: 255 229 229"></a-entity>
+      
+      <a-entity id="lighting" lighting="type: ambient; color: teal"></a-entity>
+    
+    </a-scene>
+  </body>
+</html>
